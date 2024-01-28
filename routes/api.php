@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApplicantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/applicants', [ApplicantController::class, 'index']);
+Route::post('/applicants', [ApplicantController::class, 'store']);
+Route::get('/applicants/{applicant}', [ApplicantController::class, 'show']);
+Route::put('/applicants/{applicant}', [ApplicantController::class, 'update']);
+Route::delete('/applicants/{applicant}', [ApplicantController::class, 'destroy']);
+
